@@ -1,5 +1,7 @@
-if [[ -z "${GITHUB_TOKEN}" ]]; then
-    $GITHUB_TOKEN >> _ghtoken.txt
+#!/usr/bin/bash 
+
+if [[ -v GITHUB_TOKEN ]]; then
+    echo $GITHUB_TOKEN >> _ghtoken.txt
     gh auth login --with-token < _ghtoken.txt
     rm _ghtoken.txt
 fi
