@@ -4,6 +4,5 @@ RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o vscode.deb
 RUN apt install -y ./vscode.deb
 RUN apt install -y gh
 COPY ./build_scripts /build_scripts
-RUN bash /build_scripts/githubconfig.sh
 RUN pip install -U datasets huggingface_hub transformers einops torchaudio accelerate librosa matplotlib tensorboard runpod
-CMD ["sh", "/build_scripts/run-server.sh"]
+CMD ["bash", "/build_scripts/run-server.sh"]
